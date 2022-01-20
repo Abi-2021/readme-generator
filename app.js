@@ -1,4 +1,5 @@
 // TODO: Include packages needed for this application
+const fs = require('fs');
 const inquirer = require('inquirer');
 
 const inputValidator = function (input, description) {
@@ -8,114 +9,79 @@ const inputValidator = function (input, description) {
     }
     return true;
 }
-
 // TODO: Create an array of questions for user input
-
 const questions = [
     {
         type: 'input',
         name: 'title',
-        message: 'Enter your project title? (required)',
-        validate: function (title) {
-            if (!title) {
-                console.log('Please specify a project title.');
-                return false;
-            }
-            return true;
-        }
+        message: 'What is the title of the project? (Required)',
+        validate: title => inputValidator(title, 'Enter the title of the project.')
     },
     {
         type: 'input',
         name: 'description',
         message: 'Provide a description (Required)',
-        validate: function (title) {
-            if (!title) {
-                console.log('Please give a description.');
-                return false;
-            }
-            return true;
-        }
+        validate: description => inputValidator(description, 'Provide a description of the project. ')
     },
     {
         type: 'input',
-        name: 'installation instructions',
+        name: 'installation',
         message: 'List your installation instructions?',
     },
     {
         type: 'input',
-        name: 'usage information',
+        name: 'usage',
         message: 'Provide all the usage information. ',
     },
     {
         type: 'input',
-        name: 'contribution guidelines',
+        name: 'guidelines',
         message: 'What are the contribution guidelines?',
     },
     {
         type: 'input',
-        name: 'test instructions',
+        name: 'test',
         message: 'What are the test instructions? (required)',
-        validate: function (title) {
-            if (!title) {
-                console.log('Please specify test instructions.');
-                return false;
-            }
-            return true;
-        }
+        validate: test => inputValidator(test, 'Provide test instructions for the project.')
     },
-    // {
-    //     type: 'input',
-    //     name: 'license',
-    //     message: 'Enter your project title? (required)',
-    //     validate: function (title) {
-    //         if (!title) {
-    //             console.log('Please specify a project title');
-    //             return false;
-    //         }
-    //         return true;
-    //     }
-    // },
     {
         type: 'input',
-        name: 'link',
-        message: 'Enter your GitHub link. (required)',
-        validate: function (title) {
-            if (!title) {
-                console.log('Please enter your GitHub link.');
-                return false;
-            }
-            return true;
-        }
+        name: 'githubUsername',
+        message: 'Enter your GitHub username. (required)',
+        validate: githubUsername => inputValidator(githubUsername, 'Enter the GitHub username to your project.')
     },
     {
         type: 'input',
         name: 'email',
         message: 'Enter your email address? (required)',
-        validate: function (title) {
-            if (!title) {
-                console.log('Please enter your email address.');
-                return false;
-            }
-            return true;
-        }
+        validate: email => inputValidator(email, 'Provide your email address.')
+    },
+    {
+        type: 'list',
+        name: 'license',
+        message: 'Please choose one of the following opensource licenses.',
+        choices: ['MIT', 'Apache', 'BSD', 'GNU', 'Mozilla Public License']
     }
-
-
 ];
 
-// // TODO: Create a function to write README file
-// function writeToFile(fileName, data) {
+//  TODO: Create a function to write README file
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, function (err) {
+        if (err) {
+            return console.log(err);
+        }
+        console.log('Readme has been created!');
+    });
+}
 
-// }
-//
-// // TODO: Create a function to initialize app
+//  TODO: Create a function to initialize app
 function init() {
     inquirer.prompt(questions)
         .then(function (answer) {
-            console.log(answer)
+            const data = JSON.stringify(answer)
+            writeToFile('readme.txt', data)
         })
 }
 
-//
-// // Function call to initialize app
- init();
+//  Function call to initialize app
+init();
