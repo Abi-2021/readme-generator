@@ -1,1 +1,1 @@
-{"title":"gfg","description":"jhjh","installation":"jkjk","usage":"kiyi","guidelines":"fhghg","test":"tyt","githubUsername":"ttytyt","email":"ttyt","license":"BSD"}
+{"title":"efd","description":"dgfghfh","installation":"hfhf","usage":"hghgh","guidelines":"fgdf","test":"dfdg","githubUsername":"hghj","email":"hgjg","license":"Apache 2.0"}
