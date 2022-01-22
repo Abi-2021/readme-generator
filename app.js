@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
+const generateMarkdown = require('./utils/generateMarkdown')
 
 const inputValidator = function (input, description) {
     if (!input) {
@@ -60,7 +61,15 @@ const questions = [
         type: 'list',
         name: 'license',
         message: 'Please choose one of the following opensource licenses.',
-        choices: ['MIT', 'Apache', 'BSD', 'GNU', 'Mozilla Public License']
+        choices:
+            [
+                'Apache 2.0',
+                'Boost Software License 1.0',
+                'BSD 3-Clause License',
+                'BSD 2-Clause License',
+                'GNU GPL v3',
+                'None'
+            ]
     }
 ];
 
@@ -78,8 +87,8 @@ function writeToFile(fileName, data) {
 function init() {
     inquirer.prompt(questions)
         .then(function (answer) {
-            const data = JSON.stringify(answer)
-            writeToFile('readme.txt', data)
+            writeToFile('sample-readme.md', generateMarkdown(answer))
+            console.log(answer)
         })
 }
 
