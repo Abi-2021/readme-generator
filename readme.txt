@@ -1,1 +1,0 @@
-{"title":"efd","description":"dgfghfh","installation":"hfhf","usage":"hghgh","guidelines":"fgdf","test":"dfdg","githubUsername":"hghj","email":"hgjg","license":"Apache 2.0"}

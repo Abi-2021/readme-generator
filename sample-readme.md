@@ -1,7 +1,7 @@
-# DHDFH
+# Professional readme generator
     
 ## Description
-DHFFJFDJ
+This is an application designed to create a command-line application that dynamically generates a readme.md file from user's input. 
 
 ## Table of Contents
 * [Installation](#installation)
@@ -10,23 +10,23 @@ DHFFJFDJ
 * [License](#license)
     
 ## Installation
-GHGHJDG
+Clone the project and then do node npm installation.In command line type node.app.js if you are in the root folder.
     
 ## Usage
-DDGJGJ
+
       
 ## Guidelines
-GJGJ
+
        
 ## License
-Apache 2.0
+BSD 2-Clause License
       
 ## Badges
-[![license](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) 
+[![license](https://img.shields.io/badge/License-BSD_2--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause) 
 
 ## Test
-GJGJ
+lorem15
 
 ## Contact
-[GitHub](https://github.com/GJJG)  
-[Email](mailto:JGJ)
+[GitHub](https://github.com/Abi-2021)  
+[Email](mailto:abira0607@gmail.com)
